@@ -1,0 +1,6 @@
+#* @implicitly included *#
+#* @vtlvariable name="posts" type="com.mongodb.client.MongoCursor<Document>" *#
+#* @vtlvariable name="post" type="java.lang.String" *#
+#* @vtlvariable name="data" type="java.lang.String" *#
+#* @vtlvariable name="data_title" type="java.lang.String" *#
+#* @vtlvariable name="data_id" type="java.lang.String" *#

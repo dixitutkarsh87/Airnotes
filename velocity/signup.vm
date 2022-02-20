@@ -1,0 +1,47 @@
+<html>
+
+<head>
+    <title>Airnotes - Sign Up</title>
+    <link rel="stylesheet" href="./style.css">
+	<script src="main.js"></script> 
+</head>
+
+<body>
+    <header>
+        <div class="navbar">
+
+            <li><a class="button" href="/"> Home </a></li>
+            <li><a class="button" href="/login"> Login </a></li>
+
+            <li name="TITLE">
+                <a href="/">
+                    <img src="https://img.icons8.com/external-flaticons-flat-flat-icons/30/000000/external-notes-archaeology-flaticons-flat-flat-icons.png"
+                        alt=""></a>
+            </li>
+            <li name="TITLE">
+                <h2>Airnotes</h2>
+            </li>
+        </div>
+    </header>
+    <div class="main">
+        <img class="plane"
+            src="https://img.icons8.com/external-vitaliy-gorbachev-flat-vitaly-gorbachev/200/000000/external-paper-airplane-back-to-school-vitaliy-gorbachev-flat-vitaly-gorbachev.png" />
+        <img class="pencil"
+            src="https://img.icons8.com/external-vitaliy-gorbachev-flat-vitaly-gorbachev/200/000000/external-pencil-back-to-school-vitaliy-gorbachev-flat-vitaly-gorbachev.png" />
+        <img class="note"
+            src="https://img.icons8.com/external-vitaliy-gorbachev-flat-vitaly-gorbachev/200/000000/external-certificate-award-vitaliy-gorbachev-flat-vitaly-gorbachev.png" />
+        <div class="container">
+            <div class="signup">
+                <form action="/signup" method="post">
+                    <h2>Sign Up</h2>
+                    <input type="text" placeholder="Email ID" name="email" id="email" onchange="validateEmail()" required><br>
+                    <input type="password" placeholder="Create Password" name="passwd" id="email" required><br>
+                    <input type="password" placeholder="Confirm Password" name="" id="cnfpasswd" required><br>
+                    <input type="submit" id="signup_button" value="CREATE ACCOUNT">
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

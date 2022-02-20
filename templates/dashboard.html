@@ -1,0 +1,191 @@
+<html>
+
+<head>
+    <title>Airnotes</title>
+    <link rel="stylesheet" href="./style.css">
+	<script src="main.js"></script> 
+    <style>
+        .container {
+            margin-top: 100px;
+            height: 30px;
+            box-shadow: 5px 10px 25px #a9a9a9;
+        }
+
+        .container form {
+            text-align: center;
+        }
+
+        .container textarea {
+            width: 800;
+            height: 40;
+            margin: 0 auto;
+            margin-top: 15;
+            max-width: 800px;
+            min-width: 800px;
+            font-size: 20;
+            background-color: transparent;
+            border: 0px solid;
+            border-radius: 10px;
+            padding: 5px;
+            padding-left: 10px;
+            font-family: inherit;
+            resize: none;
+            color: white;
+            margin-left: 5px;
+        }
+		.container textarea:hover {
+			background:#7215d4;
+		}
+        form input[type="text"] {
+            visibility: hidden;
+            height: 0px;
+            width: 800px;
+            border: 0px solid;
+            border-radius: 10px;
+            padding-left: 5px;
+            font-size: 20px;
+            background: none;
+            color: white;
+            margin-left: 10px;
+            margin-top: -60;
+        }
+		form input[type="text"]:hover{
+			background:#7215d4;
+		}
+		form input[type="submit"] {
+	visibility: hidden;
+	height: 0px;
+	border: 0px solid;
+	border-radius: 10px;
+	padding-left: 5px;
+	font-size: 15px;
+	background: #4a0099;
+	color: white;
+	display: inline-block;
+	bottom: 10px;
+	position: absolute;
+	right: 15px;
+	padding-right: 15px;
+	padding-left: 15px;
+}
+form input[type="submit"]:hover {
+	background:#7215d4;
+}
+        .close_note {
+            content: "\00d7";
+            visibility: hidden;
+            border: 0px solid;
+            border-radius: 7.5px;
+            width: 15px;
+            height: 15px;
+            margin-left: 785;
+            margin-bottom: -20px;
+            margin-top: -90px;
+        }
+
+        .close_note:hover {
+            display: inline-block;
+            content: "\00d7";
+        }
+
+        .close_note button {
+            border: none;
+            width: 15px;
+            height: 15px;
+            overflow: hidden;
+            background: none;
+            margin: 0 auto;
+            text-align: center;
+            margin-top: -40px;
+            color: #c3bebe;
+        }
+
+        .close_note button:hover {
+            color: white;
+        }
+
+        .sidebar {
+            background: blueviolet;
+            height: 100%;
+            width: 225;
+            float: left;
+            top: 0;
+            position: fixed;
+            left: 0;
+            box-shadow: 1px 20px 25px #a9a9a9;
+            z-index: 1;
+            margin-top: 49;
+            padding-top: 30px;
+        }
+
+        .sidebar li {
+            fill: white;
+            display: block;
+            background: blueviolet;
+            font-size: 20px;
+            height: 30px;
+            padding: 10px;
+        }
+
+        .sidebar li:hover {
+            border: 0px;
+            border-top-right-radius: 30px;
+            border-bottom-right-radius: 30px;
+            background: #6f0fbe;
+        }
+
+        .sidebar li a {
+            background: none;
+            color: white;
+            text-decoration: none;
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .sidebar svg {
+            padding: 0px;
+            padding-right: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="navbar">
+            <li><a class="button" href="/logout"> Logout </a></li>
+            <li><a class="button" href="/"> Home </a></li>
+            <li name="TITLE">
+                <img src="https://img.icons8.com/external-flaticons-flat-flat-icons/30/000000/external-notes-archaeology-flaticons-flat-flat-icons.png"
+                    alt="">
+            </li>
+            <li name="TITLE">
+                <h2>Airnotes</h2>
+            </li>
+        </div>
+    </header>
+    <div class="sidebar">
+        <li><a class="button" href="/dashboard"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="28"
+                    viewBox="-2 -4 24 24">
+                    <path
+                        d="M20.41 4.94l-1.35-1.35c-.78-.78-2.05-.78-2.83 0L13.4 6.41 3 16.82V21h4.18l10.46-10.46 2.77-2.77c.79-.78.79-2.05 0-2.83zm-14 14.12L5 19v-1.36l9.82-9.82 1.41 1.41-9.82 9.83z">
+                    </path>
+                </svg> Notes </a></li>
+        <li><a class="button" href="/trash"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="28"
+                    viewBox="-2 -4 24 24">
+                    <path d="M15 4V3H9v1H4v2h1v13c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V6h1V4h-5zm2 15H7V6h10v13z"></path>
+                    <path d="M9 8h2v9H9zm4 0h2v9h-2z"></path>
+                </svg>Trash </a></li>
+    </div>
+    <div id="main" class="main">
+        <div id="notes_container" class="container" style="max-width: 800px;">
+            <div id="close_note" class="close_note"><button onclick="closeNew()">&#10006;</button></div>
+            <form id="notes" action="/post" method="post">
+                <input form="notes" type="text" id="notes_title" placeholder="Title">
+                <textarea form="notes" id="notes_text" placeholder="Take a note..." onfocus="createNew()"></textarea>
+				<input id="save_notes" type="submit" value="Save"></input>
+			</form>
+        </div>
+    </div>
+</body>
+
+</html>
